@@ -1,14 +1,28 @@
 // src/App.js
-import React from 'react';
-import HomePage from './components/HomePage';
-import './index.css'; // Ensure Tailwind CSS styles are imported
 
-function App() {
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Profile from './Components/Profile';
+import Login from './Components/Login';
+import Categories from './Components/Categories';
+import Tracking from './components/Tracking';
+import Notifications from './Components/Notifications';
+
+
+const App = () => {
   return (
-    <div className="App">
-      <HomePage />
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full w-full">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/tracking" element={<Tracking />} />
+        <Route path="/notifications" element={<Notifications />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
