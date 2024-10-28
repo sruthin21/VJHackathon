@@ -22,19 +22,19 @@ model User {
   aadhaarNo         String   @unique
   panNo             String   @unique
   phoneNo           String   @unique
-  schemes           Scheme[] @relation("User Schemes")
-  documents         Document[]
+  voterId String
+  AdhaarId String
+  Driver_licence String
+  Income_tax_returns String
+  Degree_certificate String
+  Caste_certificate String
+  Health_insurance String
+  Salary_Slip String
+  Medical_certificate String
 }
 
-model Scheme {
-  id     Int    @id @default(autoincrement())
-  name   String
-  users  User[] @relation("User Schemes")
+model Admin{
+  adminId String @unique
+  password String
 }
 
-model Document {
-  id       Int    @id @default(autoincrement())
-  name     String
-  userId   Int
-  user     User   @relation(fields: [userId], references: [id])
-}
