@@ -37,4 +37,284 @@ model Admin{
   adminId String @unique
   password String
 }
+model State {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  tamilNadu TamilNadu?
+  telangana Telangana?
+  kerala Kerala?
+  karnataka Karnataka?
+}
+
+model TamilNadu {
+  id                          Int                       @id @default(autoincrement())
+  name                        String                    @unique
+  ammaUnavagamApplications    AmmaUnavagamApplication[]
+  naanMudhalvanApplications   NaanMudhalvanApplication[]
+  breakfastSchemeApplications BreakfastSchemeApplication[]
+  mgnregaApplications         MGNREGAApplication[]
+
+  state                       State?                    @relation(fields: [stateId], references: [id])
+  stateId                     Int?      @unique                // Foreign key back to State
+}
+
+
+model AmmaUnavagamApplication {
+  id                     Int      @id @default(autoincrement())
+  tamilNaduId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  familyIncome          Float
+  aadhaar               String
+  bankAccountDetails     String
+
+  tamilNadu             TamilNadu @relation(fields: [tamilNaduId], references: [id])
+}
+
+model NaanMudhalvanApplication {
+  id                     Int      @id @default(autoincrement())
+  tamilNaduId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  educationalQualification String
+  skillSet              String
+  bankAccountDetails     String
+
+  tamilNadu             TamilNadu @relation(fields: [tamilNaduId], references: [id])
+}
+
+model BreakfastSchemeApplication {
+  id                     Int      @id @default(autoincrement())
+  tamilNaduId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  schoolName            String
+  numberOfStudents      Int
+  bankAccountDetails     String
+
+  tamilNadu             TamilNadu @relation(fields: [tamilNaduId], references: [id])
+}
+
+model MGNREGAApplication {
+  id                     Int      @id @default(autoincrement())
+  tamilNaduId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  jobCardNumber         String
+  workDetails           String
+  bankAccountDetails     String
+
+  tamilNadu             TamilNadu @relation(fields: [tamilNaduId], references: [id])
+}
+//telangana
+model Telangana {
+  id                     Int                     @id @default(autoincrement())
+  name                   String                  @unique
+  kalyanaLakshmiApplications KalyanaLakshmiApplication[]
+  ryhtuBandhuApplications RythuBandhuApplication[]
+  aasaraPensionApplications AasaraPensionApplication[]
+  ryhtuBimaApplications RythuBimaApplication[]
+
+ state                       State?                    @relation(fields: [stateId], references: [id])
+  stateId                     Int?      @unique     
+}
+model KalyanaLakshmiApplication {
+  id                     Int      @id @default(autoincrement())
+  telanganaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  brideName             String
+  groomName             String
+  bankAccountDetails     String   
+  marriageInvitationCard String   
+  ageProof              String
+  aadhaar               String
+  panCard               String
+
+  telangana             Telangana @relation(fields: [telanganaId], references: [id])
+}
+
+model RythuBandhuApplication {
+  id                     Int      @id @default(autoincrement())
+  telanganaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  bankAccountDetails     String   
+  landOwnershipDocuments String
+
+  telangana             Telangana @relation(fields: [telanganaId], references: [id])
+}
+
+model AasaraPensionApplication {
+  id                     Int      @id @default(autoincrement())
+  telanganaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  identityProof         String   
+  ageProof              String  
+  bankAccountDetails     String   
+
+  telangana             Telangana @relation(fields: [telanganaId], references: [id])
+}
+
+model RythuBimaApplication {
+  id                     Int      @id @default(autoincrement())
+  telanganaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  identityProof         String  
+  landOwnershipDocuments String  
+  bankAccountDetails     String  
+
+  telangana             Telangana @relation(fields: [telanganaId], references: [id])
+}
+model Kerala {
+  id                     Int                     @id @default(autoincrement())
+  name                   String                  @unique
+  kudumbashreeApplications KudumbashreeApplication[]
+  employmentSchemeApplications EmploymentSchemeApplication[]
+  ksfeApplications        KSFEApplication[]
+  aardramApplications     AardramApplication[]
+
+  state                       State?                    @relation(fields: [stateId], references: [id])
+  stateId                     Int?      @unique     
+}
+
+
+model KudumbashreeApplication {
+  id                     Int      @id @default(autoincrement())
+  keralaId              Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  familyIncome          Float
+  aadhaar               String
+  bankAccountDetails     String
+
+  kerala                Kerala @relation(fields: [keralaId], references: [id])
+}
+
+model EmploymentSchemeApplication {
+  id                     Int      @id @default(autoincrement())
+  keralaId              Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  educationalQualification String
+  skillSet              String
+  bankAccountDetails     String
+
+  kerala                Kerala @relation(fields: [keralaId], references: [id])
+}
+
+model KSFEApplication {
+  id                     Int      @id @default(autoincrement())
+  keralaId              Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  loanAmount            Float
+  repaymentPeriod       Int
+  bankAccountDetails     String
+
+  kerala                Kerala @relation(fields: [keralaId], references: [id])
+}
+
+model AardramApplication {
+  id                     Int      @id @default(autoincrement())
+  keralaId              Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  healthIssue           String
+  requiredAssistance    String
+  bankAccountDetails     String
+
+  kerala                Kerala @relation(fields: [keralaId], references: [id])
+}
+//karnataka
+model Karnataka {
+  id                     Int                     @id @default(autoincrement())
+  name                   String                  @unique
+  gramaOneApplications    GramaOneApplication[]
+  bhagyalakshmiApplications BhagyalakshmiApplication[]
+  kshclApplications       KSHCLApplication[]
+  ksdApplications         KSDCApplication[]
+  sakalaApplications      SakalaApplication[]
+
+  state                       State?                    @relation(fields: [stateId], references: [id])
+  stateId                     Int?      @unique     
+}
+model GramaOneApplication {
+  id                     Int      @id @default(autoincrement())
+  karnatakaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  serviceRequired       String
+  aadhaar               String
+  bankAccountDetails     String
+
+  karnataka             Karnataka @relation(fields: [karnatakaId], references: [id])
+}
+
+model BhagyalakshmiApplication {
+  id                     Int      @id @default(autoincrement())
+  karnatakaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  familyIncome          Float
+  childBirthDate        DateTime
+  bankAccountDetails     String
+
+  karnataka             Karnataka @relation(fields: [karnatakaId], references: [id])
+}
+
+model KSHCLApplication {
+  id                     Int      @id @default(autoincrement())
+  karnatakaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  loanAmount            Float
+  repaymentPeriod       Int
+  bankAccountDetails     String
+
+  karnataka             Karnataka @relation(fields: [karnatakaId], references: [id])
+}
+
+model KSDCApplication {
+  id                     Int      @id @default(autoincrement())
+  karnatakaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  skillSet              String
+  trainingCenter        String
+  bankAccountDetails     String
+
+  karnataka             Karnataka @relation(fields: [karnatakaId], references: [id])
+}
+
+model SakalaApplication {
+  id                     Int      @id @default(autoincrement())
+  karnatakaId           Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  applicantName         String
+  serviceRequested      String
+  applicationStatus     String
+  bankAccountDetails     String
+
+  karnataka             Karnataka @relation(fields: [karnatakaId], references: [id])
+}
+
+
 
