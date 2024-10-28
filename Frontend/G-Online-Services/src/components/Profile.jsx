@@ -2,15 +2,14 @@
 import React from 'react';
 
 const Profile = () => {
-    return (
-        <div className="card mb-3">
-            <div className="card-body">
-                <h5 className="card-title">User Profile</h5>
-                <p className="card-text">Welcome, [User Name]</p>
-                <button className="btn btn-primary">Logout</button>
-            </div>
-        </div>
-    );
+  return (
+    <div className="bg-gray-100 p-4 rounded shadow-md">
+      <h2 className="text-xl font-bold mb-2">User Profile</h2>
+      <p>Name: John Doe</p>
+      <p>Email: john.doe@example.com</p>
+      <button className="bg-blue-600 text-white p-2 rounded mt-4">Edit Profile</button>
+    </div>
+  );
 };
 
 export default Profile;

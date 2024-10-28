@@ -1,20 +1,13 @@
+// src/components/Login.js
 import React from 'react';
 
 const Login = () => {
   return (
-    <div className="my-4 p-4 bg-light rounded">
-      <h2>Login</h2>
-      <form>
-        <div className="form-group">
-          <label>Email</label>
-          <input type="email" className="form-control" placeholder="Enter email" />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input type="password" className="form-control" placeholder="Password" />
-        </div>
-        <button type="submit" className="btn btn-primary mt-2">Login</button>
-      </form>
+    <div className="bg-gray-100 p-4 rounded shadow-md">
+      <h2 className="text-xl font-bold mb-2">Login</h2>
+      <input type="text" placeholder="Username" className="border rounded p-2 mb-2 w-full" />
+      <input type="password" placeholder="Password" className="border rounded p-2 mb-4 w-full" />
+      <button className="bg-blue-600 text-white p-2 rounded w-full">Login</button>
     </div>
   );
 };
