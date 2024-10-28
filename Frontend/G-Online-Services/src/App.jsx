@@ -8,6 +8,7 @@ import Login from './Components/Login';
 import Categories from './Components/Categories';
 import Tracking from './components/Tracking';
 import Notifications from './Components/Notifications';
+import Register from './components/Register';
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/categories" element={<Categories />} />
         <Route path="/tracking" element={<Tracking />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
