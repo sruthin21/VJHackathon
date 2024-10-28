@@ -5,10 +5,16 @@ import { Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import Profile from './Components/Profile';
 import Login from './Components/Login';
-import Categories from './Components/Categories';
 import Tracking from './components/Tracking';
 import Notifications from './Components/Notifications';
 import Register from './components/Register';
+import Categories from './components/Categories';
+import Services from './components/Services';
+import Health from './components/Health';
+import Edu from './components/Edu';
+import Emp from './components/Emp';
+import Legal from './components/Legal';
+import Social from './components/Social';
 
 
 const App = () => {
@@ -22,6 +28,15 @@ const App = () => {
         <Route path="/tracking" element={<Tracking />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/health" element={<Health />} />
+        
+        <Route path="/edu" element={<Edu />} />
+        <Route path="/social" element={<Social />} />
+        <Route path="/emp" element={<Emp />} />
+        <Route path="/legal" element={<Legal />} />
+        <Route path="/tracking" element={<Tracking />} />
+        {/* <Route path="/services" element={<Services />} /> */}
       </Routes>
     </div>
   );
