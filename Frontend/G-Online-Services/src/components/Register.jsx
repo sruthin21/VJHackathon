@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 const Register = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -177,6 +179,9 @@ const Register = () => {
                 <button
                     type="submit"
                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    onClick={()=>{
+                        navigate('/')
+                    }}
                 >
                     Register
                 </button>
