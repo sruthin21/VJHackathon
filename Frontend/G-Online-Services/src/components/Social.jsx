@@ -1,10 +1,12 @@
 import React from 'react'
-
+import social1img from '../assets/TSWREIS.jpg' 
+import KGPGimg from '../assets/KGPG.jpg'
+import MiddayImg from '../assets/midday.jpg'
 const Social = () => {
     const categories = [
-        { name: 'Service1', description: 'This is Service 1',navi:'/social/service1' },
-        { name: 'Service2 ', description: 'This is Service 1',navi:'/social/service2' },
-        { name: 'Service3', description: 'This is Service 1',navi:'/social/service3' }
+        { name: 'Telangana Social Welfare Residential Educational Institutions Society (TSWREIS)', description: 'Manages residential schools for children from Scheduled Castes (SC) and other marginalized communities.Provides free education, boarding, and lodging along with comprehensive academic support, emphasizing holistic development and equality.',navi:'/social/service1',image:social1img },
+        { name: 'KG to PG Free Education Scheme ', description: 'Envisioned as a long-term plan to offer free education from kindergarten to postgraduate levels, aiming to reduce the financial burden on families.The scheme focuses on providing accessible, high-quality education, with special provisions for economically weaker sections and marginalized communities.',navi:'/social/service2',image:KGPGimg },
+        { name: 'Mid-Day Meal Scheme', description: 'A nationwide scheme implemented by the Telangana government in all government and government-aided schools to improve nutritional standards among children.Provides free, nutritious meals to students, which encourages regular school attendance and enhances learning outcomes.',navi:'/social/service3',image:MiddayImg }
       ];
   return (
     <div className='flex flex-col h-screen justify-center items-center'>
@@ -17,6 +19,7 @@ const Social = () => {
               navigate(category.navi)
            }}
          >
+            <img src={category.image}/>
             <h3 className="text-xl font-semibold mb-2">{category.name}</h3>
             <p className="text-gray-200">{category.description}</p>
           </div>

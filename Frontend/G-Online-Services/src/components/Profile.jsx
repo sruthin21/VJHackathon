@@ -1,35 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 const Profile = () => {
   const [profile, setProfile] = useState({
     name: "Einstein",
-    email: "e@gmail.com",
-    aadharNumber: 100,
-    phone: 852068742,
-    aadharcard: '',
-    pancard: '',
-    incomecertificate:'',
-    castecertificate:''
+    email: "einsteinellandala@gmail.com",
+    aadharNumber: 619863051767,
+    phone: +918520658742
   });
   const [loading, setLoading] = useState(false); // Start with loading true
   const [error, setError] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchProfile = async () => {
-  //     setLoading(true); // Start loading
-  //     try {
-  //       const response = await axios.get('/api/profile'); // replace '/api/profile' with your endpoint
-  //       setProfile(response.data);
-  //     } catch (err) {
-  //       setError('Failed to fetch profile details');
-  //     } finally {
-  //       setLoading(false); // Always set loading to false after try/catch
-  //     }
-  //   };
-
-  //   fetchProfile();
-  // }, []);
+  
 
   if (loading) return <p>Loading profile...</p>;
   if (error) return <p>{error}</p>;

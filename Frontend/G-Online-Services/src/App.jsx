@@ -15,6 +15,8 @@ import Edu from './components/Edu';
 import Emp from './components/Emp';
 import Legal from './components/Legal';
 import Social from './components/Social';
+import AdminPage from './components/AdminPage';
+import AdminLogin from './components/AdminLogin';
 
 
 const App = () => {
@@ -29,14 +31,14 @@ const App = () => {
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<Register />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/health" element={<Health />} />
-        
+        <Route path="/health" element={<Health />} />        
         <Route path="/edu" element={<Edu />} />
         <Route path="/social" element={<Social />} />
         <Route path="/emp" element={<Emp />} />
         <Route path="/legal" element={<Legal />} />
         <Route path="/tracking" element={<Tracking />} />
-        {/* <Route path="/services" element={<Services />} /> */}
+        <Route path="/adminpage" element={<AdminPage/>}/>
+        <Route path="/AdminLogin" element={<AdminLogin/>}/>
       </Routes>
     </div>
   );
