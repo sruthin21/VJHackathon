@@ -3,6 +3,8 @@ import RythuImg from '../assets/rythu.png'
 import aasara from '../assets/aasara.jpg'
 import kalyan from '../assets/kalyan.png'
 const Edu = () => {
+
+  
     const categories = [
         { name: 'Rythu Bandhu', description: 'Eligible farmers receive a fixed amount per acre to support crop investments each season, helping reduce debt dependency and encouraging sustainable agriculture.',navi:'/edu/service1',image:RythuImg },
         { name: 'Aasara Pension Scheme', description: 'Monthly pension amounts are disbursed to ensure a basic income for these groups, promoting inclusivity and economic support for those who cannot easily earn a livelihood.',navi:'/edu/service2',image:aasara },
