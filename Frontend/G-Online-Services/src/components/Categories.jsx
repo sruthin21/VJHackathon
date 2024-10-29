@@ -3,21 +3,26 @@
 import React from 'react'
 import Notifications from '../Components/Notifications';
 import { redirect, useNavigate } from 'react-router-dom';
+import imag from '../assets/HealthServices.png';
+import educat from '../assets/eduservices.png';
+import socialwel from '../assets/socialwelfare.jpg';
+import empservices from '../assets/emp.jpg';
+import legal from '../assets/legal.png';
 
 const categories = [
-  { name: 'Health Services', description: 'Access health-related services',navi:'/health' },
-  { name: 'Education Services', description: 'Find educational resources',navi:'/edu' },
-  { name: 'Social Welfare', description: 'Apply for welfare programs',navi:'/social' },
-  { name: 'Employment Services', description: 'Job portals and resources',navi:'/emp' },
-  { name: 'Legal Services', description: 'Legal resources and information',navi:'/legal' },
+  { name: 'Health Services', description: 'Access health-related services',navi:'/health', image:imag },
+  { name: 'Education Services', description: 'Find educational resources',navi:'/social', image:educat },
+  { name: 'Social Welfare', description: 'Apply for welfare programs',navi:'/edu', image:socialwel },
+  { name: 'Employment Services', description: 'Job portals and resources',navi:'/emp', image:empservices },
+  { name: 'Legal Services', description: 'Legal resources and information',navi:'/legal', image:legal },
 ];
 
 const Categories = () => {
   const navigate = useNavigate();
   return (
     <div className='flex '>
-    <div className="flex flex-col basis-4/6 p-6 bg-gray-900 text-white">
-      <h2 className="text-3xl font-bold text-center mb-8">Categories</h2>
+    <div className="flex flex-col basis-4/6 p-6 bg-blue-900 text-white">
+      <h2 className="text-white text-2xl font-bold mb-4">Categories</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category, index) => (
@@ -28,6 +33,7 @@ const Categories = () => {
               navigate(category.navi)
            }}
          >
+          <img src={category.image}/>
             <h3 className="text-xl font-semibold mb-2">{category.name}</h3>
             <p className="text-gray-200">{category.description}</p>
           </div>
