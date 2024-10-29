@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.js
 
-function App() {
-  const [count, setCount] = useState(0)
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import Profile from './Components/Profile';
+import Login from './Components/Login';
+import Tracking from './components/Tracking';
+import Notifications from './Components/Notifications';
+import Register from './components/Register';
+import Categories from './components/Categories';
+import Services from './components/Services';
+import Health from './components/Health';
+import Edu from './components/Edu';
+import Emp from './components/Emp';
+import Legal from './components/Legal';
+import Social from './components/Social';
 
+
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="bg-gradient-to-r from-cyan-500 to-blue-500 h-full w-full">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/tracking" element={<Tracking />} />
+        <Route path="/notifications" element={<Notifications />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/health" element={<Health />} />
+        
+        <Route path="/edu" element={<Edu />} />
+        <Route path="/social" element={<Social />} />
+        <Route path="/emp" element={<Emp />} />
+        <Route path="/legal" element={<Legal />} />
+        <Route path="/tracking" element={<Tracking />} />
+        {/* <Route path="/services" element={<Services />} /> */}
+      </Routes>
+    </div>
+  );
+};
 
-export default App
+export default App;
